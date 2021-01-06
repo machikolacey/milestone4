@@ -1,2 +1,2 @@
   
-web: gunicorn boutique_ado.wsgi:application
+web: gunicorn mlkshop.wsgi:application
