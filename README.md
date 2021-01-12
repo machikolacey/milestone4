@@ -1,6 +1,8 @@
 # Machiko Lacey Pianist website
 
+## UX
 
+## Features
 
 ## Deployment
 
@@ -110,4 +112,13 @@ git push heroku master
 </li>
 <li>When the app is deployed, click on 'Open App' button to run your app </li>
 </ol>
+
+## Technologies Used
+
+## Testing
+
+### Test Results
+
+
+### Acknowledgements
 
