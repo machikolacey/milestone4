@@ -1,16 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from profiles.models import UserProfile
+from django.contrib.auth.models import User
 
-
-class Comment(models.Model):
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,  null=True, blank=True)
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
-    body = models.TextField()
-    rating = models.IntegerField
-    created_at = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
 
 
 class Category(models.Model):
@@ -39,5 +31,31 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
+
     def __str__(self):
         return self.name
+
+
+class Comment(models.Model):
+    title = models.CharField(max_length=254, null=True, blank=True)
+    details = models.TextField(max_length=254, null=True, blank=True)
+    rating = models.IntegerField(null=True, blank=True)
+    user_profile = models.ForeignKey(
+            UserProfile,
+            on_delete=models.SET_NULL,
+            null=True,
+            blank=True,
+            related_name="user_profile",
+        )
+    product = models.ForeignKey(
+            Product,
+            on_delete=models.SET_NULL,
+            null=True,
+            blank=True,
+            related_name="user_product",
+        )
+
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+
+
