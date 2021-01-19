@@ -1,4 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import User
+from profiles.models import UserProfile
+
+
+class Comment(models.Model):
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,  null=True, blank=True)
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    rating = models.IntegerField
+    created_at = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
 
 
 class Category(models.Model):
