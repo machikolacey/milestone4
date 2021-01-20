@@ -109,7 +109,48 @@
                 </div>
             </div>
         </div>
+
+
+
+<div class="reviews">
+    <div class="row">
+        <div class="col-sm-12">
+                {% for review in reviews %}
+             
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5 class="text-left">{{ review.user.username }}</h5>
+                                    {% if request.user == review.user %}
+
+                                    <a href="{% url 'edit_review' product.pk review.pk %}">Edit</a>
+                                    <a href="{% url 'delete_review' product.pk review.pk %}">Delete</a>
+
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-9">
+                                    <p>{{ review.comment }}</p>
+                                </div>
+                            </div>
+                   
+                {% endfor %}
+        </div>
+
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+                <form action="{% url 'add_review' product.pk %}" method="POST">
+                {% csrf_token %}                                               
+                <textarea name="comment"></textarea>
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+
 {% endblock %}
 
 {% block postloadjs %}
