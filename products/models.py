@@ -36,29 +36,6 @@ class Product(models.Model):
         return self.name
 
 
-class Comment(models.Model):
-    title = models.CharField(max_length=254, null=True, blank=True)
-    details = models.TextField(max_length=254, null=True, blank=True)
-    rating = models.IntegerField(null=True, blank=True)
-    user_profile = models.ForeignKey(
-            UserProfile,
-            on_delete=models.SET_NULL,
-            null=True,
-            blank=True,
-            related_name="user_profile",
-        )
-    product = models.ForeignKey(
-            Product,
-            on_delete=models.SET_NULL,
-            null=True,
-            blank=True,
-            related_name="user_product",
-        )
-
-    created_at = models.DateField(auto_now_add=True)
-    updated_at = models.DateField(auto_now=True)
-
-
 class Review(models.Model):
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE)
