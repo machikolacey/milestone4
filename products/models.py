@@ -47,3 +47,16 @@ class Review(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Event(models.Model):
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE)
+    start_date_time = models.DateTimeField()
+    end_date_time = models.DateTimeField()
+    event_title = models.TextField(max_length=250, null=True, blank=True)
+    is_virtual = models.BooleanField(default=False, null=True, blank=True)
+    video_link = models.TextField(max_length=1000, null=True, blank=True)
+
+
+
+    
