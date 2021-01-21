@@ -46,7 +46,7 @@ class Review(models.Model):
 
 
     def __str__(self):
-        return self.user.username
+        return self.user.username +'/ '+ self.product.name + '/ ' + self.updated_at
 
 class Event(models.Model):
     product = models.ForeignKey(
@@ -58,5 +58,6 @@ class Event(models.Model):
     video_link = models.TextField(max_length=1000, null=True, blank=True)
 
 
-
+    def __str__(self):
+        return self.event_title+'/ '+ self.end_date_time.strftime("%m/%d/%Y, %H:%M:%S") 
     
