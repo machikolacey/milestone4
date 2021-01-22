@@ -49,8 +49,10 @@ class Review(models.Model):
         return self.user.username +'/ '+ self.product.name + '/ ' + self.updated_at
 
 class Event(models.Model):
-    product = models.ForeignKey(
-        Product, on_delete=models.CASCADE)
+    product = models.OneToOneField(
+        Product,
+        on_delete=models.CASCADE
+    )    
     start_date_time = models.DateTimeField()
     end_date_time = models.DateTimeField()
     event_title = models.TextField(max_length=250, null=True, blank=True)
