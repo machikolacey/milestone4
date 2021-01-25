@@ -64,17 +64,17 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
-    event   = get_object_or_404(Event, product=product_id)
+ 
 
 
-    print(event)
+
 
     #print(event.event_title)
 
     context = {
         'product': product,
         'reviews': reviews,
-        'event' : event,
+
     }
 
     return render(request, 'products/product_detail.html', context)
