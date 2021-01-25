@@ -63,3 +63,11 @@ class Event(models.Model):
     def __str__(self):
         return self.event_title+'/ '+ self.end_date_time.strftime("%m/%d/%Y, %H:%M:%S") 
     
+
+class Album(models.Model):
+    product = models.OneToOneField(
+        Product,
+        on_delete = models.CASCADE
+    )
+    album_runtime = models.IntegerField(null=False, blank=False)
+    album_jacket =  models.ImageField(null=True, blank=True)

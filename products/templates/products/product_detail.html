@@ -15,7 +15,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h2>{{ product.name }}</h2>
+                <h2>{{ product.name }} {{ product.album.album_runtime }}</h2>
+                {% if product.album.album_runtime %}
+                {{ product.album.album_runtime }}
+                <h3>Album</h3>
+                {% endif %}
                     {% if product.event.event_title %}
                         <h3 class="sub-title"> {{ product.event.event_title }} </h3>
                     {% endif %}
