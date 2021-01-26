@@ -71,3 +71,14 @@ class Album(models.Model):
     )
     album_runtime = models.IntegerField(null=False, blank=False)
     album_jacket =  models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return self.product.name 
+
+class AlbumSongs(models.Model):
+     album = models.ForeignKey(
+        Album, on_delete=models.CASCADE)
+     song_title = models.TextField(max_length=250, null=True, blank=True)
+
+     def __str__(self):
+        return self.album.product.name + '-' + self.song_title 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, Review, Event, Album
+from .models import Product, Category, Review, Event, Album, AlbumSongs
 
 # Register your models here.
 
@@ -26,3 +26,4 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Review)
 admin.site.register(Event)
 admin.site.register(Album)
+admin.site.register(AlbumSongs)
