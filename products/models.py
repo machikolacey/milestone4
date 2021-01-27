@@ -77,7 +77,7 @@ class Album(models.Model):
 
 class AlbumSongs(models.Model):
      album = models.ForeignKey(
-        Album, on_delete=models.CASCADE)
+        Album, on_delete=models.CASCADE, related_name='albumsongs')
      song_title = models.TextField(max_length=250, null=True, blank=True)
 
      def __str__(self):
