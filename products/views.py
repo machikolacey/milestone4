@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-
+from django.core.exceptions import ObjectDoesNotExist
 from .models import Product, Category, Review, Event, Album, AlbumSongs
 from .forms import ProductForm, ReviewForm
 
@@ -64,14 +64,18 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
-    
 
- 
+    try:
+        album = Album.objects.get(product=product_id)
+    except ObjectDoesNotExist:
+        album = None
 
     context = {
         'product': product,
         'reviews': reviews,
+        'album'  : album,
 
+     
     }
 
     return render(request, 'products/product_detail.html', context)
