@@ -9,25 +9,52 @@
     </div>
 {% endblock %}
 
-{% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col- col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                   First Album on sale!
-                </h1>
-                <div class="my-5">
-                    <h4>
-                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
-                    </h4>
-                </div>
-            </div>
-            <div class="col- col-md-6 my-auto">
-                <div id="photo">
-                    <img src="https://machiko-kimura-lacey-pianist.s3-eu-west-1.amazonaws.com/media/template/12107898_10205710384738747_1030625496299507854_n.jpg" alt="">
-                </div>
 
-            </div>
-        </div>
+
+{% block content %}
+
+
+
+
+
+
+<div class="container h-100">
+<div class="owl-carousel">
+        {% for advert in adverts %} 
+            <div class="item"><img src="{{ MEDIA_URL }}{{ advert.banner }}"></div>
+        {% endfor %}
+</div>
+
+<!--
+    <div id="owl-demo">
+                <h1>
+            <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3"> First Album on sale!</a></h1>
+            </h1>
+            {% for advert in adverts %} 
+        
+            <div class="item"><img src="{{ MEDIA_URL }}{{ advert.banner }}" alt="Owl Image"></div>
+            {% endfor %}
     </div>
+-->
+</div>
+ {% if adverts %}
+    <script>
+  
+   $(document).ready(function() { 
+
+      $(".owl-carousel").owlCarousel({
+            autoPlay: 200, 
+            items : 2,
+            itemsDesktop : [1199,3],
+            itemsDesktopSmall : [979,3] 
+      });
+      /*  $("#owl-demo").owlCarousel({ 
+            autoPlay: 3000, 
+            items : 1,
+            itemsDesktop : [1199,3],
+            itemsDesktopSmall : [979,3] 
+        }); */
+    });
+    </script>
+{% endif %}
 {% endblock %}
