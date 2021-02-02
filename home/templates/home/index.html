@@ -43,17 +43,16 @@
    $(document).ready(function() { 
 
       $(".owl-carousel").owlCarousel({
-            autoPlay: 200, 
-            items : 2,
-            itemsDesktop : [1199,3],
-            itemsDesktopSmall : [979,3] 
-      });
-      /*  $("#owl-demo").owlCarousel({ 
-            autoPlay: 3000, 
+            autoplaySpeed:600, 
             items : 1,
-            itemsDesktop : [1199,3],
-            itemsDesktopSmall : [979,3] 
-        }); */
+            loop:true,
+            margin:10,
+            nav:true,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true
+      });
+     
     });
     </script>
 {% endif %}
