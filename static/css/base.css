@@ -263,6 +263,19 @@ input[name='q']::placeholder {
     border-color: #dc3545;
     border-radius: 0;
 }
+.slick-prev:before, .slick-next:before {
+    color: #fff;
+    background: #9f9d9d;
+    padding: 0 10px;
+}
+
+.slick-slide {
+   height:300px;
+}
+
+.slick-slide img {
+   height:340px;
+}
 
 
 /* fixed top navbar only on medium and up */
