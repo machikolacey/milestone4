@@ -68,9 +68,21 @@ body {
     border: 1px solid black !important;
 }
 
-.bg-black {
-    background: #000 !important;
+.bg-base-primary {
+    background-color: #785964 ;
+      background-color: #454545;
 }
+.bg-base-secondary{
+    background-color: #93B7BE;
+}
+.bg-base-tertiary{
+    background-color: #454545;
+}
+.bg-base-light{
+    background-color:#F1FFFA;
+    color:#222;
+}
+
 
 .overlay {
 	height: 100%;
