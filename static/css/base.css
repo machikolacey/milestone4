@@ -69,17 +69,17 @@ body {
 }
 
 .bg-base-primary {
-    background-color: #785964 ;
-      background-color: #454545;
+    background-color: #222;
+      background-color: #222;
 }
 .bg-base-secondary{
-    background-color: #93B7BE;
+    background-color: #7179AC;
 }
 .bg-base-tertiary{
-    background-color: #454545;
+    background-color: #593857;
 }
 .bg-base-light{
-    background-color:#F1FFFA;
+    background-color:#E6E7FA;
     color:#222;
 }
 
